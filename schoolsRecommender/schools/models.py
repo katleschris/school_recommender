@@ -1,5 +1,4 @@
 from django.db import models
-import pandas as pd
 class School(models.Model):
     school_name = models.CharField(max_length=255)
     street = models.CharField(max_length=255)
