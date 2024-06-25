@@ -18,3 +18,6 @@ class SchoolData():
         df2.to_csv('schools1.csv', index=False)
         
         return df2
+
+school_data = SchoolData()
+all_schools = school_data.get_schools_from_csv()
