@@ -1,3 +1,26 @@
 from django.db import models
-
-# Create your models here.
+import pandas as pd
+class School(models.Model):
+    school_name = models.CharField(max_length=255)
+    street = models.CharField(max_length=255)
+    suburb = models.CharField(max_length=255)
+    state = models.CharField(max_length=255)
+    postcode = models.CharField(max_length=10)
+    postal_street = models.CharField(max_length=255)
+    postal_suburb = models.CharField(max_length=255)
+    postal_state = models.CharField(max_length=255)
+    postal_postcode = models.CharField(max_length=10)
+    latitude = models.FloatField()
+    longitude = models.FloatField()
+    phone = models.CharField(max_length=20)
+    education_region = models.CharField(max_length=255)
+    broad_classification = models.CharField(max_length=255)
+    classification_group = models.CharField(max_length=255)
+    low_year = models.CharField(max_length=255)
+    high_year = models.CharField(max_length=255)
+    total_students = models.IntegerField()
+    be_score = models.CharField(max_length=255)
+    icsea = models.CharField(max_length=255)
+    atar_rank = models.CharField(max_length=255)
+    median_atar = models.CharField(max_length=255)
+    percent_students_with_atar = models.CharField(max_length=255)
