@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>School Recommendations</title>
+    <link rel="stylesheet" href="recommendations.css" />
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        h1 {
+            color: #0074d9;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 5px;
+            padding: 5%;
+            border: 1px solid #ddd;
+            border-radius: 2px;
+        }
+
+        strong {
+            font-weight: bold;
+        }
+
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: 10px;
+        }
+
+        .col-md-12,
+        .col-md-3,
+        .col-md-2,
+        .col-6 {
+            padding: 5px;
+        }
+
+        .col-md-12 {
+            flex: 0 0 100%;
+            max-width: 100%;
+        }
+
+        .col-md-3 {
+            flex: 0 0 33.33%;
+            max-width: 33.33%;
+        }
+
+        .media-body {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .media-body h3 {
+            margin: 0;
+            color: #233368;
+            font-weight: bold;
+        }
+
+        .primary-site {
+            color: #555;
+            font-size: 0.875rem;
+        }
+
+        .small {
+            font-size: 0.75rem;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>School Recommendations</h1>
+    <ul>
+        {% for school, distance in recommendations %}
+        <li>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="media-body">
+                        <h3 class="mb-0 font-weight-bold">
+                            <a href="{% url 'school_detail' school.id %}">{{ school.school_name }}</a>
+                        </h3>
+                        <p class="primary-site">
+                            {{school.education_region}}, {{ school.suburb
+                            }}, {{ school.state }}
+                        </p>
+                        <p class="small">Distance: {{ distance }} km</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3 small">
+                    <b>Street</b><br />
+                    {{ school.street }}
+                </div>
+                <div class="col-md-3 small">
+                    <b>Classification</b><br />
+                    {{ school.classification_group }}
+                </div>
+                <div class="col-md-3 small">
+                    <b>Year range</b><br />
+                    {{ school.low_year }} - {{ school.high_year }}
+                </div>
+            </div>
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+
+</html>
