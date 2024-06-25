@@ -7,12 +7,9 @@
 
 <body>
     <h1>School Recommender</h1>
-    <form method="get" action="{% url 'recommend' %}">
-        <label for="latitude">Latitude:</label>
-        <input type="text" id="latitude" name="latitude" required />
-        <br />
-        <label for="longitude">Longitude:</label>
-        <input type="text" id="longitude" name="longitude" required />
+    <form id="recommendForm" method="get" action="{% url 'recommend' %}">
+        <label for="address">Address:</label>
+        <input type="text" id="address" name="address" required />
         <br />
         <button type="submit">Recommend Schools</button>
     </form>

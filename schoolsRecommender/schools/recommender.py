@@ -1,7 +1,7 @@
 from geopy.distance import geodesic
 from schools.models import School
 
-def recommend_schools(latitude, longitude, max_distance_km=50, top_n=50):
+def recommend_schools(latitude, longitude, max_distance_km=50, top_n=20):
     all_schools = School.objects.all()
     recommendations = []
 
