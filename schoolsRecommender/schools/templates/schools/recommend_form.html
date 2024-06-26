@@ -3,6 +3,33 @@
 
 <head>
     <title>School Recommender</title>
+    <script async
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBqhzcCt3-YIkmhHJPCWBXW7VQQY2oNdCw&libraries=places&callback=initAutocomplete">
+        </script>
+    <script>
+        let autocomplete;
+        function initAutocomplete() {
+            autocomplete = new google.maps.places.Autocomplete(
+                document.getElementById('address'), // Match the ID of your input field
+                {
+                    types: ['address'], // Adjust types as necessary
+                    componentRestrictions: { country: ['AU'] }, // Adjust country as necessary
+                    fields: ['geometry', 'name'] // Adjust fields as necessary
+                }
+            );
+            autocomplete.addListener('place_changed', onPlaceChanged);
+        }
+
+        function onPlaceChanged() {
+            var place = autocomplete.getPlace();
+            if (!place.geometry) {
+                document.getElementById('address').placeholder = 'Enter a valid address';
+            } else {
+                // You can use place.geometry.location.lat() and place.geometry.location.lng() if needed
+                document.getElementById('details').innerHTML = place.name;
+            }
+        }
+    </script>
 </head>
 
 <body>
@@ -13,6 +40,7 @@
         <br />
         <button type="submit">Recommend Schools</button>
     </form>
+    <div id="details"></div>
 </body>
 
 </html>
