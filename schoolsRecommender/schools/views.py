@@ -1,19 +1,25 @@
+from .models import School
 
-from django.shortcuts import render
+# views.py
+from django.shortcuts import render, get_object_or_404
 from .recommender import recommend_schools
+import googlemaps
+from django.conf import settings
 
 def recommend_view(request):
     if request.method == 'GET':
         address = request.GET.get('address')
         if address:
-            # Geocode the address using Nominatim API
-            url = f"https://nominatim.openstreetmap.org/search?q={address}&format=json&limit=1"
-            response = request.get(url)
-            data = response.json()
+            # Initialize the Google Maps client with your API key
+            gmaps = googlemaps.Client(key=settings.GOOGLE_MAPS_API_KEY)
             
-            if data:
-                latitude = float(data[0]['lat'])
-                longitude = float(data[0]['lon'])
+            # Geocode the address using Google Maps API
+            geocode_result = gmaps.geocode(address)
+            
+            if geocode_result:
+                location = geocode_result[0]['geometry']['location']
+                latitude = location['lat']
+                longitude = location['lng']
                 recommendations = recommend_schools(latitude, longitude)
                 return render(request, 'schools/recommendations.html', {'recommendations': recommendations})
             else:
@@ -29,3 +35,6 @@ def school_detail_view(request, school_id):
         'school': school,
     }
     return render(request, 'schools/school_detail.html', context)
+
+
+
