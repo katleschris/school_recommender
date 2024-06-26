@@ -1,6 +1,4 @@
 from .models import School
-
-# views.py
 from django.shortcuts import render, get_object_or_404
 from .recommender import recommend_schools
 import googlemaps
@@ -10,10 +8,7 @@ def recommend_view(request):
     if request.method == 'GET':
         address = request.GET.get('address')
         if address:
-            # Initialize the Google Maps client with your API key
             gmaps = googlemaps.Client(key=settings.GOOGLE_MAPS_API_KEY)
-            
-            # Geocode the address using Google Maps API
             geocode_result = gmaps.geocode(address)
             
             if geocode_result:
