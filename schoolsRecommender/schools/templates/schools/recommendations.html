@@ -76,6 +76,9 @@
 
 <body>
     <h1>School Recommendations</h1>
+    {% if message %}
+    <p>{{ message }}</p>
+    {% endif %}
     <ul>
         {% for school, distance in recommendations %}
         <li>
@@ -110,5 +113,8 @@
         {% endfor %}
     </ul>
 </body>
+
+</html>
+
 
 </html>

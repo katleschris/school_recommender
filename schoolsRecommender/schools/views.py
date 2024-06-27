@@ -11,17 +11,26 @@ def recommend_view(request):
             gmaps = googlemaps.Client(key=settings.GOOGLE_MAPS_API_KEY)
             geocode_result = gmaps.geocode(address)
             
-            if geocode_result:
+            if (geocode_result):
                 location = geocode_result[0]['geometry']['location']
                 latitude = location['lat']
                 longitude = location['lng']
-                recommendations = recommend_schools(latitude, longitude)
+                recommendations, extended_recommendations = recommend_schools(latitude, longitude)
+                
+                if not recommendations:
+                    return render(request, 'schools/recommendations.html', {
+                        'recommendations': extended_recommendations,
+                        'message': 'No schools within 50km. Enter a different address.',
+                        'extended': True
+                    })
+                
                 return render(request, 'schools/recommendations.html', {'recommendations': recommendations})
             else:
                 return render(request, 'schools/recommend_form.html', {'error': 'Geocode was not successful: No results found'})
         else:
             return render(request, 'schools/recommend_form.html', {'error': 'Address is required'})
     return render(request, 'schools/recommend_form.html')
+
 
 
 def school_detail_view(request, school_id):
