@@ -15,7 +15,7 @@ This project involves designing and implementing a school recommendation system 
 
 ## Table of Contents
 
-- [Task 1: School Recommendation Prototype](#task-1-school-recommendation-prototype)
+- [School Recommendation Prototype](#school-recommendation-prototype)
   - [Objective](#objective)
   - [Dependencies and Imports](#dependencies-and-imports)
   - [Criteria for Recommendation](#criteria-for-recommendation)
@@ -24,7 +24,7 @@ This project involves designing and implementing a school recommendation system 
   - [Output](#output)
   - [Future Scope](#future-scope)
 
-## Task 1: School Recommendation Prototype
+## School Recommendation Prototype
 
 ### Objective
 
