@@ -7,6 +7,7 @@
   <img src="https://img.shields.io/badge/CSS-20232a?style=for-the-badge&logo=css&labelColor=2e2f35" />
   <img src="https://img.shields.io/badge/Pandas-20232a?style=for-the-badge&logo=pandas&labelColor=2e2f38" />
   <img src="https://img.shields.io/badge/GeoPy-20232a?style=for-the-badge&logo=geopy&labelColor=2e2f38" />
+  <img <img src="https://img.shields.io/badge/Google-20232a?style=for-the-badge&logo=google&labelColor=2e2f38" />
 </div>
 
 ## Project Overview
