@@ -10,8 +10,7 @@
 </div>
 
 ## Project Overview
-
-This project involves designing and implementing a school recommendation system for students in Australia. The system helps students find schools that best fit their criteria, including geolocation, classification, and year range.
+Built a Django-based school recommendation platform that analyzes Australian school datasets and recommends suitable schools to students based on location, distance, classification, and year range. The system processes CSV datasets using Pandas, converts addresses to geolocation coordinates via the Google Maps API, and calculates proximity using GeoPy to generate personalized results. The application demonstrates full-stack development including data ingestion, database modelling, backend logic, and user-facing recommendation views.
 
 ## Table of Contents
 
