@@ -44,6 +44,7 @@ Analyze provided datasets of secondary schools and develop a proof-of-concept pr
 - **Django**: The web framework used to build the application.
 - **Pandas**: A data manipulation and analysis library used for handling datasets.
 - **GeoPy**: A library used for geocoding and calculating distances.
+- **Google Maps API**: An API that enables the integration of interactive maps, street view, and place information to enhance user experience. .
 
 ### Criteria for Recommendation
 
